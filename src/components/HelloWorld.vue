@@ -31,15 +31,6 @@ const connectWallet = async function() {
   wallet.value = await WalletHandler.trackWallet(walletConfig)
 
   fileIo = await FileIo.trackIo(wallet.value, '1.0.9')
-  fileIo.forceProvider({
-        address: 'jkl1y0g7aj9rqn73fe65hllqvx34szlp6xxlxweveg',
-        ip: 'http://192.168.1.6:3333',
-        totalspace: '10000000000',
-        burnedContracts: '0',
-        creator: 'jkl1y0g7aj9rqn73fe65hllqvx34szlp6xxlxweveg',
-        keybaseIdentity: '',
-        authClaimers: []
-      })
 
   const listOfFolders = ["publish-demo"] 
 
@@ -81,17 +72,7 @@ const uploadFile = async function (file) {
   const fileName = file.name // replace with your own file name 
   const handler = await FileUploadHandler.trackFile(file, parentFolderPath)
 
-  fileIo = await FileIo.trackIo(wallet.value, '1.0.9').force
-
-  const chosenProvider = await fileIo.forceProvider({
-        address: 'jkl1y0g7aj9rqn73fe65hllqvx34szlp6xxlxweveg',
-        ip: 'http://192.168.1.6:3333',
-        totalspace: '10000000000',
-        burnedContracts: '0',
-        creator: 'jkl1y0g7aj9rqn73fe65hllqvx34szlp6xxlxweveg',
-        keybaseIdentity: '',
-        authClaimers: []
-      })
+  fileIo = await FileIo.trackIo(wallet.value, '1.0.9')
 
   const parent = await fileIo.downloadFolder(parentFolderPath)
   console.log(parent)
