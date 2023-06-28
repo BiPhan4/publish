@@ -1,0 +1,21 @@
+{
+  "name": "publish",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jackal.js": "file:jackal.js-2.0.3.tgz",
+    "node-stdlib-browser": "^1.2.0",
+    "vite-plugin-node-stdlib-browser": "^0.2.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.3.9"
+  }
+}
