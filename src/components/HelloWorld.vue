@@ -36,7 +36,7 @@ const connectWallet = async function() {
 
   // you can create as many folders as you would like this way
 
-    // The first time a user connects, they must init the system
+  // The first time a user connects, they must init the system
   const storage = await StorageHandler.trackStorage(wallet.value)
   const msg0 = storage.makeStorageInitForWasmMsg()
   await fileIo.generateInitialDirs(msg0, listOfFolders)
