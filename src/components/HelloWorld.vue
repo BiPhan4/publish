@@ -97,6 +97,17 @@ const uploadFile = async function (file) {
 
 }
 
+const deleteFile = async function (confirmation) {
+  const parentFolderPath = "s/publish-demo" 
+
+  fileIo = await FileIo.trackIo(wallet.value, '1.0.9')
+
+  const parent = await fileIo.downloadFolder(parentFolderPath)
+  const deleted = await fileIo.deleteTargets([confirmation], parent)
+
+}
+
+
 const onChange = function (e) {
   const files = e.target.files
   console.log(files)
@@ -110,6 +121,13 @@ const goToFID = function () {
 
 const yeet = async function() {
   await connectWallet().catch(err => console.warn(err))
+}
+
+const promptDeleteConfirmation = async function() {
+  const confirmation = window.prompt('Please enter the name of the file to delete:')
+  if (confirmation !== null) {
+    await deleteFile(confirmation)
+  }
 }
 
 
@@ -127,6 +145,7 @@ const yeet = async function() {
       <div class ="dropbox">
       <input type="file" class="input-file" @change="onChange">
       </div>
+      <button type="button" @click="promptDeleteConfirmation()">{{wallet.value ? "Connected" : "Delete"}}</button>
   </div>
 
 </template>
