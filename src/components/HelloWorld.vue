@@ -4,6 +4,7 @@ import {WalletHandler, FileIo, StorageHandler, getFileTreeData, FileUploadHandle
 
 import {mainnet} from './testnetConfig'
 import {local} from './localConfig.js'
+import {wasmd} from './wasmdConfig.js'
 import {testnet} from './testnetConfig'
 import * as Interface from '../../helpers/interface';
 
@@ -21,11 +22,11 @@ const connectWallet = async function() {
 
   const walletConfig = {
     selectedWallet: 'keplr',
-    ...local
+    ...wasmd
   }
 
   // 
-  window.keplr.experimentalSuggestChain(local.chainConfig)
+  window.keplr.experimentalSuggestChain(wasmd.chainConfig)
 
   // Hooking up the wallet to your app
   wallet.value = await WalletHandler.trackWallet(walletConfig)
