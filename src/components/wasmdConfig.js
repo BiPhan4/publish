@@ -1,22 +1,22 @@
 // local wasmd chain config
-export const wSignerChain = 'wasmd-1'
+export const wSignerChain = 'localwasm-1'
 
 export const wasmd = {
 signerChain: wSignerChain,
 enabledChains: [wSignerChain],
-queryAddr: 'http://localhost:56385',
-txAddr: 'http://localhost:56389',
+queryAddr: 'http://localhost:59364',
+txAddr: 'http://localhost:59363',
 chainConfig: { // wasmd chain config
     chainId: wSignerChain,
     chainName: 'wasmd localnet',
-    rpc: 'http://localhost:56389',
-    rest: 'http://localhost:56386',
+    rpc: 'http://localhost:59363',
+    rest: 'http://localhost:59375',
     bip44: {
         coinType: 118
     },
     stakeCurrency: {
-        coinDenom: 'stake',
-        coinMinimalDenom: 'ustake',
+        coinDenom: 'wsm',
+        coinMinimalDenom: 'uwsm',
         coinDecimals: 6
     },
     bech32Config: {
@@ -29,15 +29,15 @@ chainConfig: { // wasmd chain config
     },
     currencies: [
         {
-        coinDenom: 'stake',
-        coinMinimalDenom: 'ustake',
+        coinDenom: 'wsm',
+        coinMinimalDenom: 'uwsm',
         coinDecimals: 6
         }
     ],
     feeCurrencies: [
         {
-        coinDenom: 'stake',
-        coinMinimalDenom: 'ustake',
+        coinDenom: 'wsm',
+        coinMinimalDenom: 'uwsm',
         coinDecimals: 6,
         gasPriceStep: {
             low: 0.002,
