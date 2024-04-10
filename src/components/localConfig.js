@@ -1,16 +1,16 @@
-
-export const lSignerChain = 'test-1'
+// local jackal config for the outpost 
+export const lSignerChain = 'jackal-1'
 
 export const local = {
 signerChain: lSignerChain,
 enabledChains: [lSignerChain],
-queryAddr: 'http://localhost:9091',
-txAddr: 'http://localhost:26657',
+queryAddr: 'http://localhost:56378',
+txAddr: 'http://localhost:56367',
 chainConfig: { // local chain config
     chainId: lSignerChain,
     chainName: 'jackal localnet',
-    rpc: 'http://localhost:26657',
-    rest: 'http://localhost:1317',
+    rpc: 'http://localhost:56367',
+    rest: 'http://localhost:56379',
     bip44: {
         coinType: 118
     },

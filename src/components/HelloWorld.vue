@@ -22,11 +22,11 @@ const connectWallet = async function() {
 
   const walletConfig = {
     selectedWallet: 'keplr',
-    ...wasmd
+    ...local
   }
 
   // 
-  window.keplr.experimentalSuggestChain(wasmd.chainConfig)
+  window.keplr.experimentalSuggestChain(local.chainConfig)
 
   // Hooking up the wallet to your app
   wallet.value = await WalletHandler.trackWallet(walletConfig)
