@@ -4,13 +4,13 @@ export const wSignerChain = 'localwasm-1'
 export const wasmd = {
 signerChain: wSignerChain,
 enabledChains: [wSignerChain],
-queryAddr: 'http://localhost:59364',
-txAddr: 'http://localhost:59363',
+queryAddr: 'http://localhost:59633',
+txAddr: 'http://localhost:59632',
 chainConfig: { // wasmd chain config
     chainId: wSignerChain,
     chainName: 'wasmd localnet',
-    rpc: 'http://localhost:59363',
-    rest: 'http://localhost:59375',
+    rpc: 'http://localhost:59632',
+    rest: 'http://localhost:59634',
     bip44: {
         coinType: 118
     },
