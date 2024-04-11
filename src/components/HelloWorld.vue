@@ -131,12 +131,30 @@ const promptDeleteConfirmation = async function() {
   }
 }
 
+const sendCosmosMsgCli = async function() {
+
+    const walletConfig = {
+      selectedWallet: 'keplr',
+      ...wasmd
+    }
+
+    window.keplr.experimentalSuggestChain(wasmd.chainConfig)
+    // Hooking up the wallet to your app
+    wallet.value = await WalletHandler.trackWallet(walletConfig)
+
+    fileIo = await FileIo.trackIo(wallet.value, '1.0.9')
+    // The first time a user connects, they must init the system
+    const storage = await StorageHandler.trackStorage(wallet.value)
+    const msg0 = storage.sendCosmosMsgCLI()
+
+    await fileIo.broadcastForOutpost(msg0)
+
+}
+
 
 </script>
 
-
 <template>
-
 
   <p>{{ "it's Bi" }}</p>
 
@@ -147,8 +165,18 @@ const promptDeleteConfirmation = async function() {
       <input type="file" class="input-file" @change="onChange">
       </div>
       <button type="button" @click="promptDeleteConfirmation()">{{wallet.value ? "Connected" : "Delete"}}</button>
+      <button type="button" @click="sendCosmosMsgCli()">Send Cosmos Message</button>
   </div>
 
 </template>
+
+
+
+
+
+
+
+
+
 
 
